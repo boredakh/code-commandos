@@ -1,0 +1,71 @@
+.listingorgin-card {
+  color: var(--dl-color-theme-neutral-light);
+  width: 100%;
+  height: auto;
+  display: flex;
+  position: relative;
+  align-self: flex-start;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #4b32c1;
+}
+ 
+.listingorgin-text15 {
+  text-align: center;
+}
+ 
+.listingorgin-actions {
+  gap: var(--dl-space-space-unit);
+  flex-wrap: wrap;
+}
+ 
+.listingorgin-button {
+  flex: 1;
+}
+ 
+.listingorgin-action1 {
+  text-align: center;
+}
+ 
+.listingorgin-text16 {
+  display: inline-block;
+}
+ 
+.listingorgin-text17 {
+  display: inline-block;
+}
+ 
+.listingorgin-text18 {
+  display: inline-block;
+}
+ 
+.listingorgin-text19 {
+  display: inline-block;
+}
+ 
+.listingorgin-text20 {
+  display: inline-block;
+}
+ 
+.listingorgin-text21 {
+  display: inline-block;
+}
+ 
+.listingorgin-text22 {
+  display: inline-block;
+}
+ 
+
+ 
+@media(max-width: 767px) {
+  .listingorgin-card {
+    width: 100%;
+  }
+}
+ 
+@media(max-width: 479px) {
+  .listingorgin-button {
+    width: 100%;
+  }
+}

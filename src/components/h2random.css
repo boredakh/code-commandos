@@ -1,0 +1,8 @@
+.h2random-container {
+  display: flex;
+  position: relative;
+}
+ 
+.h2random-text2 {
+  display: inline-block;
+}

@@ -1,0 +1,72 @@
+.listingout1-card {
+  color: var(--dl-color-theme-neutral-light);
+  width: 100%;
+  height: auto;
+  display: flex;
+  position: relative;
+  align-self: flex-start;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #4b32c1;
+}
+ 
+.listingout1-text15 {
+  text-align: center;
+}
+ 
+.listingout1-actions {
+  gap: var(--dl-space-space-unit);
+  flex-wrap: wrap;
+}
+ 
+.listingout1-button {
+  flex: 1;
+  text-decoration: none;
+}
+ 
+.listingout1-action1 {
+  text-align: center;
+}
+ 
+.listingout1-text16 {
+  display: inline-block;
+}
+ 
+.listingout1-text17 {
+  display: inline-block;
+}
+ 
+.listingout1-text18 {
+  display: inline-block;
+}
+ 
+.listingout1-text19 {
+  display: inline-block;
+}
+ 
+.listingout1-text20 {
+  display: inline-block;
+}
+ 
+.listingout1-text21 {
+  display: inline-block;
+}
+ 
+.listingout1-text22 {
+  display: inline-block;
+}
+ 
+
+ 
+@media(max-width: 767px) {
+  .listingout1-card {
+    width: 100%;
+  }
+}
+ 
+@media(max-width: 479px) {
+  .listingout1-button {
+    width: 100%;
+  }
+}

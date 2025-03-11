@@ -1,0 +1,245 @@
+.terms-of-service-container1 {
+  width: 100%;
+  height: auto;
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-direction: column;
+}
+ 
+.terms-of-service-max-width {
+  width: 100%;
+  display: flex;
+  max-width: var(--dl-size-size-maxwidth);
+  align-items: center;
+  flex-direction: column;
+}
+ 
+.terms-of-service-container2 {
+  flex: 0 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+}
+ 
+.terms-of-service-button1 {
+  border-color: #000000;
+  background-color: #4b32c1;
+}
+ 
+.terms-of-service-button3 {
+  color: #4b32c1;
+  border-color: #4b32c1;
+}
+ 
+.terms-of-service-button5 {
+  color: #4b32c1;
+  border-color: #4b32c1;
+}
+ 
+.terms-of-service-container3 {
+  flex: 0 0 auto;
+  width: auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+ 
+.terms-of-service-container4 {
+  align-self: stretch;
+  align-items: flex-start;
+}
+ 
+.terms-of-service-li10 {
+  align-items: flex-start;
+}
+ 
+.terms-of-service-heading7 {
+  align-self: center;
+  text-align: center;
+}
+ 
+.terms-of-service-ul2 {
+  align-items: flex-start;
+  padding-left: var(--dl-space-space-fiveunits);
+}
+ 
+.terms-of-service-container5 {
+  align-self: stretch;
+  align-items: flex-start;
+}
+ 
+.terms-of-service-li13 {
+  align-items: flex-start;
+}
+ 
+.terms-of-service-heading10 {
+  align-self: center;
+  text-align: center;
+}
+ 
+.terms-of-service-ul4 {
+  align-items: flex-start;
+  padding-left: var(--dl-space-space-fiveunits);
+}
+ 
+.terms-of-service-container6 {
+  align-self: stretch;
+  align-items: flex-start;
+}
+ 
+.terms-of-service-li17 {
+  align-items: flex-start;
+}
+ 
+.terms-of-service-heading1 {
+  align-self: center;
+  text-align: center;
+}
+ 
+.terms-of-service-ul6 {
+  align-items: flex-start;
+  padding-left: var(--dl-space-space-fiveunits);
+}
+ 
+.terms-of-service-text106 {
+  display: inline-block;
+}
+ 
+.terms-of-service-text120 {
+  display: inline-block;
+}
+ 
+.terms-of-service-text121 {
+  display: inline-block;
+}
+ 
+.terms-of-service-text122 {
+  display: inline-block;
+}
+ 
+.terms-of-service-text123 {
+  display: inline-block;
+}
+ 
+.terms-of-service-text124 {
+  display: inline-block;
+}
+ 
+.terms-of-service-text125 {
+  display: inline-block;
+}
+ 
+.terms-of-service-text126 {
+  display: inline-block;
+}
+ 
+.terms-of-service-text127 {
+  display: inline-block;
+}
+ 
+.terms-of-service-text128 {
+  display: inline-block;
+}
+ 
+.terms-of-service-text129 {
+  display: inline-block;
+}
+ 
+.terms-of-service-text130 {
+  display: inline-block;
+}
+ 
+.terms-of-service-text131 {
+  display: inline-block;
+}
+ 
+.terms-of-service-text132 {
+  display: inline-block;
+}
+ 
+.terms-of-service-text146 {
+  display: inline-block;
+}
+ 
+.terms-of-service-text147 {
+  display: inline-block;
+}
+ 
+.terms-of-service-text148 {
+  display: inline-block;
+}
+ 
+.terms-of-service-text149 {
+  display: inline-block;
+}
+ 
+.terms-of-service-text150 {
+  display: inline-block;
+}
+ 
+.terms-of-service-text151 {
+  display: inline-block;
+}
+ 
+.terms-of-service-text152 {
+  display: inline-block;
+}
+ 
+.terms-of-service-text153 {
+  display: inline-block;
+}
+ 
+.terms-of-service-text154 {
+  display: inline-block;
+}
+ 
+.terms-of-service-text155 {
+  display: inline-block;
+}
+ 
+.terms-of-service-text156 {
+  display: inline-block;
+}
+ 
+.terms-of-service-text157 {
+  display: inline-block;
+}
+ 
+.terms-of-service-text158 {
+  display: inline-block;
+}
+ 
+.terms-of-service-text202 {
+  display: inline-block;
+}
+ 
+@media(max-width: 767px) {
+  .terms-of-service-ul2 {
+    padding-left: var(--dl-space-space-threeunits);
+  }
+  .terms-of-service-ul4 {
+    padding-left: var(--dl-space-space-threeunits);
+  }
+  .terms-of-service-ul6 {
+    padding-left: var(--dl-space-space-threeunits);
+  }
+}
+ 
+@media(max-width: 479px) {
+  .terms-of-service-container2 {
+    align-items: stretch;
+    flex-direction: column;
+  }
+  .terms-of-service-ul2 {
+    padding-left: var(--dl-space-space-oneandhalfunits);
+  }
+  .terms-of-service-ul4 {
+    padding-left: var(--dl-space-space-oneandhalfunits);
+  }
+  .terms-of-service-ul6 {
+    padding-left: var(--dl-space-space-oneandhalfunits);
+  }
+}

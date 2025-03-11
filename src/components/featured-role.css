@@ -1,0 +1,73 @@
+.featured-role-card {
+  color: var(--dl-color-theme-neutral-light);
+  width: 100%;
+  height: auto;
+  display: flex;
+  position: relative;
+  align-self: flex-start;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #4b32c1;
+}
+ 
+.featured-role-text15 {
+  text-align: center;
+}
+ 
+.featured-role-actions {
+  gap: var(--dl-space-space-unit);
+  flex-wrap: wrap;
+}
+ 
+.featured-role-button {
+  flex: 1;
+}
+ 
+.featured-role-action1 {
+  text-align: center;
+}
+ 
+.featured-role-text16 {
+  display: inline-block;
+}
+ 
+.featured-role-text17 {
+  display: inline-block;
+}
+ 
+.featured-role-text18 {
+  display: inline-block;
+}
+ 
+.featured-role-text19 {
+  display: inline-block;
+}
+ 
+.featured-role-text20 {
+  display: inline-block;
+}
+ 
+.featured-role-text21 {
+  display: inline-block;
+}
+ 
+.featured-role-text22 {
+  display: inline-block;
+}
+ 
+
+ 
+
+ 
+@media(max-width: 767px) {
+  .featured-role-card {
+    width: 100%;
+  }
+}
+ 
+@media(max-width: 479px) {
+  .featured-role-button {
+    width: 100%;
+  }
+}

@@ -1,0 +1,252 @@
+.edit-listing-card {
+    color: var(--dl-color-theme-neutral-light);
+    width: 100%;
+    height: auto;
+    display: flex;
+    position: relative;
+    align-self: flex-start;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #4b32c1;
+  }
+   
+  .edit-listing-text15 {
+    text-align: center;
+  }
+   
+  .edit-listing-actions {
+    gap: var(--dl-space-space-unit);
+    border: 2px dashed rgba(120, 120, 120, 0.4);
+    flex-wrap: wrap;
+  }
+   
+  .edit-listing-section-title {
+    gap: var(--dl-space-space-unit);
+    align-items: center;
+  }
+   
+  .edit-listing-content {
+    gap: var(--dl-space-space-oneandhalfunits);
+    display: flex;
+    align-self: stretch;
+    align-items: center;
+    flex-direction: column;
+  }
+   
+  .edit-listing-form {
+    gap: var(--dl-space-space-oneandhalfunits);
+    width: 100%;
+  }
+   
+  .edit-listing-container1 {
+    gap: var(--dl-space-space-unit);
+    flex: 0 0 auto;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+  }
+   
+  .edit-listing-job-title {
+    gap: var(--dl-space-space-halfunit);
+    width: 50%;
+    display: flex;
+    align-self: stretch;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+   
+  .edit-listing-organisation-name {
+    gap: var(--dl-space-space-halfunit);
+    width: 50%;
+    display: flex;
+    align-self: stretch;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+   
+  .edit-listing-container2 {
+    gap: var(--dl-space-space-unit);
+    flex: 0 0 auto;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+  }
+   
+  .edit-listing-postcode {
+    gap: var(--dl-space-space-halfunit);
+    width: 50%;
+    display: flex;
+    align-self: stretch;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+   
+  .edit-listing-phone {
+    gap: var(--dl-space-space-halfunit);
+    width: 50%;
+    display: flex;
+    align-self: stretch;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+   
+  .edit-listing-container3 {
+    flex: 0 0 auto;
+    width: 50%;
+    display: flex;
+    align-self: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+   
+  .edit-listing-input {
+    gap: var(--dl-space-space-halfunit);
+    display: flex;
+    align-self: stretch;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+   
+  .edit-listing-listing-description {
+    gap: var(--dl-space-space-halfunit);
+    flex: 0 0 auto;
+    width: 100%;
+    display: flex;
+    align-self: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+   
+  .edit-listing-checkbox1 {
+    gap: var(--dl-space-space-unit);
+    display: flex;
+    align-self: flex-start;
+    align-items: center;
+  }
+   
+  .edit-listing-button1 {
+    align-self: flex-start;
+    text-decoration: none;
+    background-color: #bf4408;
+  }
+   
+  .edit-listing-button2 {
+    align-self: flex-start;
+    text-decoration: none;
+    background-color: #bf4408;
+  }
+   
+  .edit-listing-text24 {
+    display: inline-block;
+  }
+   
+  .edit-listing-text25 {
+    display: inline-block;
+  }
+   
+  .edit-listing-text26 {
+    display: inline-block;
+  }
+   
+  .edit-listing-text27 {
+    display: inline-block;
+  }
+   
+  .edit-listing-text28 {
+    display: inline-block;
+  }
+   
+  .edit-listing-text29 {
+    display: inline-block;
+  }
+   
+  .edit-listing-text30 {
+    display: inline-block;
+  }
+   
+  .edit-listing-text31 {
+    display: inline-block;
+  }
+   
+  
+   
+  @media(max-width: 991px) {
+    .edit-listing-container1 {
+      gap: var(--dl-space-space-twounits);
+      width: 100%;
+      flex-direction: row;
+    }
+    .edit-listing-job-title {
+      width: 50%;
+    }
+    .edit-listing-organisation-name {
+      width: 50%;
+      flex-direction: column;
+    }
+    .edit-listing-container2 {
+      gap: var(--dl-space-space-twounits);
+      width: 100%;
+      flex-direction: row;
+    }
+    .edit-listing-postcode {
+      width: 50%;
+    }
+    .edit-listing-phone {
+      width: 50%;
+    }
+    .edit-listing-container3 {
+      gap: var(--dl-space-space-twounits);
+      width: 100%;
+      flex-direction: row;
+    }
+    .edit-listing-input {
+      gap: var(--dl-space-space-halfunit);
+      width: 50%;
+      flex-direction: column;
+    }
+    .edit-listing-listing-description {
+      width: 100%;
+    }
+    .edit-listing-checkbox1 {
+      align-self: flex-start;
+    }
+  }
+   
+  @media(max-width: 767px) {
+    .edit-listing-card {
+      width: 100%;
+    }
+    .edit-listing-textarea {
+      flex: 1;
+    }
+  }
+   
+  @media(max-width: 479px) {
+    .edit-listing-form {
+      padding: var(--dl-space-space-unit);
+    }
+    .edit-listing-container1 {
+      align-items: stretch;
+      flex-direction: column;
+    }
+    .edit-listing-job-title {
+      width: 100%;
+    }
+    .edit-listing-organisation-name {
+      width: 100%;
+    }
+    .edit-listing-container2 {
+      align-items: stretch;
+      flex-direction: column;
+    }
+    .edit-listing-postcode {
+      width: 100%;
+    }
+    .edit-listing-phone {
+      width: 100%;
+    }
+  }
+  

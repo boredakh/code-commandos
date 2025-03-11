@@ -1,0 +1,44 @@
+.notificationcardorg-card {
+  color: var(--dl-color-theme-neutral-light);
+  width: 100%;
+  height: auto;
+  display: flex;
+  position: relative;
+  align-self: flex-start;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #4b32c1;
+}
+ 
+.notificationcardorg-text3 {
+  text-align: center;
+}
+ 
+.notificationcardorg-actions {
+  gap: var(--dl-space-space-unit);
+  border: 2px dashed rgba(120, 120, 120, 0.4);
+  flex-wrap: wrap;
+}
+ 
+.notificationcardorg-text4 {
+  display: inline-block;
+}
+ 
+.notificationcardorg-text5 {
+  display: inline-block;
+}
+ 
+.notificationcardorg-text6 {
+  display: inline-block;
+}
+ 
+
+ 
+
+ 
+@media(max-width: 767px) {
+  .notificationcardorg-card {
+    width: 100%;
+  }
+}

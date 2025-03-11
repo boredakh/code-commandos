@@ -1,0 +1,65 @@
+.viewapplicationcardvol-card {
+  color: var(--dl-color-theme-neutral-light);
+  width: 100%;
+  height: auto;
+  display: flex;
+  position: relative;
+  align-self: flex-start;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #4b32c1;
+}
+ 
+.viewapplicationcardvol-text4 {
+  text-align: center;
+}
+ 
+.viewapplicationcardvol-actions {
+  gap: var(--dl-space-space-unit);
+  flex-wrap: wrap;
+}
+ 
+.viewapplicationcardvol-button {
+  flex: 1;
+}
+ 
+.viewapplicationcardvol-action1 {
+  text-align: center;
+}
+ 
+.viewapplicationcardvol-text5 {
+  display: inline-block;
+}
+ 
+.viewapplicationcardvol-text6 {
+  display: inline-block;
+}
+ 
+.viewapplicationcardvol-text7 {
+  display: inline-block;
+}
+ 
+.viewapplicationcardvol-text8 {
+  display: inline-block;
+}
+ 
+.viewapplicationcardvol-text9 {
+  display: inline-block;
+}
+ 
+
+ 
+
+ 
+@media(max-width: 767px) {
+  .viewapplicationcardvol-card {
+    width: 100%;
+  }
+}
+ 
+@media(max-width: 479px) {
+  .viewapplicationcardvol-button {
+    width: 100%;
+  }
+}

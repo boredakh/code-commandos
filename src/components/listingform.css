@@ -1,0 +1,200 @@
+.listingform-contact1 {
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-direction: column;
+}
+ 
+.listingform-section-title {
+  gap: var(--dl-space-space-unit);
+  align-items: center;
+}
+ 
+.listingform-content {
+  gap: var(--dl-space-space-oneandhalfunits);
+  display: flex;
+  align-self: stretch;
+  align-items: center;
+  flex-direction: column;
+}
+ 
+.listingform-form {
+  gap: var(--dl-space-space-oneandhalfunits);
+  width: 100%;
+}
+ 
+.listingform-container1 {
+  gap: var(--dl-space-space-unit);
+  flex: 0 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+}
+ 
+.listingform-job-title {
+  gap: var(--dl-space-space-halfunit);
+  width: 50%;
+  display: flex;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-direction: column;
+}
+ 
+.listingform-organisation-name {
+  gap: var(--dl-space-space-halfunit);
+  width: 50%;
+  display: flex;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-direction: column;
+}
+ 
+.listingform-container2 {
+  gap: var(--dl-space-space-unit);
+  flex: 0 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+}
+ 
+.listingform-postcode {
+  gap: var(--dl-space-space-halfunit);
+  width: 50%;
+  display: flex;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-direction: column;
+}
+ 
+.listingform-phone {
+  gap: var(--dl-space-space-halfunit);
+  width: 50%;
+  display: flex;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-direction: column;
+}
+ 
+.listingform-container3 {
+  flex: 0 0 auto;
+  width: 50%;
+  display: flex;
+  align-self: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+}
+ 
+.listingform-input {
+  gap: var(--dl-space-space-halfunit);
+  display: flex;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-direction: column;
+}
+ 
+.listingform-listing-description {
+  gap: var(--dl-space-space-halfunit);
+  flex: 0 0 auto;
+  width: 100%;
+  display: flex;
+  align-self: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+}
+ 
+.listingform-checkbox1 {
+  gap: var(--dl-space-space-unit);
+  display: flex;
+  align-self: flex-start;
+  align-items: center;
+}
+ 
+.listingform-button {
+  align-self: flex-start;
+  text-decoration: none;
+  background-color: #4b32c1;
+}
+ 
+.listingform-text18 {
+  display: inline-block;
+}
+ 
+.listingform-text19 {
+  display: inline-block;
+}
+ 
+@media(max-width: 991px) {
+  .listingform-container1 {
+    gap: var(--dl-space-space-twounits);
+    width: 100%;
+    flex-direction: row;
+  }
+  .listingform-job-title {
+    width: 50%;
+  }
+  .listingform-organisation-name {
+    width: 50%;
+    flex-direction: column;
+  }
+  .listingform-container2 {
+    gap: var(--dl-space-space-twounits);
+    width: 100%;
+    flex-direction: row;
+  }
+  .listingform-postcode {
+    width: 50%;
+  }
+  .listingform-phone {
+    width: 50%;
+  }
+  .listingform-container3 {
+    gap: var(--dl-space-space-twounits);
+    width: 100%;
+    flex-direction: row;
+  }
+  .listingform-input {
+    gap: var(--dl-space-space-halfunit);
+    width: 50%;
+    flex-direction: column;
+  }
+  .listingform-listing-description {
+    width: 100%;
+  }
+  .listingform-checkbox1 {
+    align-self: flex-start;
+  }
+}
+ 
+@media(max-width: 767px) {
+  .listingform-textarea {
+    flex: 1;
+  }
+}
+ 
+@media(max-width: 479px) {
+  .listingform-form {
+    padding: var(--dl-space-space-unit);
+  }
+  .listingform-container1 {
+    align-items: stretch;
+    flex-direction: column;
+  }
+  .listingform-job-title {
+    width: 100%;
+  }
+  .listingform-organisation-name {
+    width: 100%;
+  }
+  .listingform-container2 {
+    align-items: stretch;
+    flex-direction: column;
+  }
+  .listingform-postcode {
+    width: 100%;
+  }
+  .listingform-phone {
+    width: 100%;
+  }
+}

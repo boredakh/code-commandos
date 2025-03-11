@@ -1,0 +1,44 @@
+.org-or-vol-banner-container {
+  width: 100%;
+  height: 330px;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  background-color: #4b32c1;
+}
+ 
+.org-or-vol-banner-buttons {
+  gap: var(--dl-space-space-twounits);
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+ 
+.org-or-vol-banner-action11 {
+  color: #4b32c1;
+  display: flex;
+  border-color: #000000;
+  flex-direction: row;
+  text-decoration: none;
+  background-color: #ffffff;
+}
+ 
+.org-or-vol-banner-action12 {
+  color: #4b32c1;
+  display: flex;
+  border-color: #000000;
+  flex-direction: row;
+  text-decoration: none;
+  background-color: #ffffff;
+}
+ 
+.org-or-vol-banner-text3 {
+  display: inline-block;
+}
+ 
+.org-or-vol-banner-text4 {
+  display: inline-block;
+}
+ 
+

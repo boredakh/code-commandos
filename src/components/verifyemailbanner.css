@@ -1,0 +1,40 @@
+.verifyemailbanner-container1 {
+  gap: var(--dl-space-space-unit);
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+ 
+.verifyemailbanner-max-width {
+  gap: var(--dl-space-space-oneandhalfunits);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+ 
+.verifyemailbanner-container2 {
+  gap: var(--dl-space-space-halfunit);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+ 
+.verifyemailbanner-title {
+  text-align: center;
+}
+ 
+.verifyemailbanner-navlink {
+  border-color: #000000;
+  text-decoration: none;
+  background-color: #4b32c1;
+}
+ 
+.verifyemailbanner-text2 {
+  display: inline-block;
+}
+ 
+.verifyemailbanner-text3 {
+  display: inline-block;
+}
+ 
+
