@@ -64,24 +64,24 @@
  
 .nav-bar-out-action11 {
   display: flex;
-  border-color: #000000;
+  border-color: #ffa566;
   flex-direction: row;
   text-decoration: none;
-  background-color: #4b32c1;
+  background-color: #001a6f;
 }
  
 .nav-bar-out-action12 {
   display: flex;
-  border-color: #000000;
+  border-color: #ffa566;
   flex-direction: row;
   text-decoration: none;
-  background-color: #4b32c1;
+  background-color: #001a6f;
 }
  
 .nav-bar-out-action21 {
-  color: #4b32c1;
+  color: #001a6f;
   display: flex;
-  border-color: #000000;
+  border-color: #ffa566;
   flex-direction: row;
   text-decoration: none;
 }

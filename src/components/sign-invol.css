@@ -111,7 +111,7 @@
  
 .sign-invol-textinput2 {
   width: 100%;
-  border-color: #4b32c1;
+  border-color: #002d7e;
   background-color: transparent;
 }
  
@@ -136,7 +136,7 @@
   width: 100%;
   align-self: center;
   border-color: #000000;
-  background-color: #4b32c1;
+  background-color: #002d7e;
 }
  
 .sign-invol-text14 {
@@ -195,7 +195,7 @@
   display: flex;
   align-items: flex-start;
   flex-direction: column;
-  background-color: #4b32c1;
+  background-color: #002d7e;
 }
  
 .sign-invol-divider3 {
@@ -205,14 +205,14 @@
   display: flex;
   align-items: flex-start;
   flex-direction: column;
-  background-color: #4b32c1;
+  background-color: #002d7e;
 }
  
 .sign-invol-button2 {
-  color: #4b32c1;
+  color: #002d7e;
   width: 100%;
   align-self: center;
-  border-color: #4b32c1;
+  border-color: #002d7e;
   text-decoration: none;
 }
  

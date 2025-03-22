@@ -19,7 +19,29 @@ const Applicant = (props) => {
       try {
         const { data, error } = await supabase
           .from('applications')
-          .select('*')
+          .select(`
+            *,
+            first_name,
+            last_name,
+            experience,
+            age_group,
+            city_county,
+            gender,
+            telephone,
+            volunteer_interest,
+            previous_volunteer,
+            previous_work_details,
+            skills_experience,
+            availability_days,
+            availability_duration,
+            languages,
+            referee_name,
+            referee_email,
+            referee_relationship,
+            applied_at,
+            user_message,
+            user_email
+          `)
           .eq('id', applicationId)
           .single(); // Fetch a single application
 
@@ -162,7 +184,7 @@ const Applicant = (props) => {
         }
         text12={
           <Fragment>
-            <span className="applicant-text29">{application.county || 'N/A'}</span>
+            <span className="applicant-text29">{application.city_county || 'N/A'}</span>
           </Fragment>
         }
         text13={
@@ -175,9 +197,72 @@ const Applicant = (props) => {
             <span className="applicant-text31">{application.user_email}</span>
           </Fragment>
         }
+        // Additional fields
+        text14={
+          <Fragment>
+            <span className="applicant-text32">{application.gender || 'N/A'}</span>
+          </Fragment>
+        }
+        text15={
+          <Fragment>
+            <span className="applicant-text33">{application.telephone || 'N/A'}</span>
+          </Fragment>
+        }
+        text16={
+          <Fragment>
+            <span className="applicant-text34">{application.volunteer_interest || 'N/A'}</span>
+          </Fragment>
+        }
+        text17={
+          <Fragment>
+            <span className="applicant-text35">
+              {application.previous_volunteer ? 'Yes' : 'No'}
+            </span>
+          </Fragment>
+        }
+        text18={
+          <Fragment>
+            <span className="applicant-text36">{application.previous_work_details || 'N/A'}</span>
+          </Fragment>
+        }
+        text19={
+          <Fragment>
+            <span className="applicant-text37">{application.skills_experience || 'N/A'}</span>
+          </Fragment>
+        }
+        text20={
+          <Fragment>
+            <span className="applicant-text38">{application.availability_days || 'N/A'}</span>
+          </Fragment>
+        }
+        text21={
+          <Fragment>
+            <span className="applicant-text39">{application.availability_duration || 'N/A'}</span>
+          </Fragment>
+        }
+        text22={
+          <Fragment>
+            <span className="applicant-text40">{application.languages || 'N/A'}</span>
+          </Fragment>
+        }
+        text23={
+          <Fragment>
+            <span className="applicant-text41">{application.referee_name || 'N/A'}</span>
+          </Fragment>
+        }
+        text24={
+          <Fragment>
+            <span className="applicant-text42">{application.referee_email || 'N/A'}</span>
+          </Fragment>
+        }
+        text25={
+          <Fragment>
+            <span className="applicant-text43">{application.referee_relationship || 'N/A'}</span>
+          </Fragment>
+        }
         mainAction1={
           <Fragment>
-            <span className="applicant-text32">Return</span>
+            <span className="applicant-text44">Return</span>
           </Fragment>
         }
         rootClassName="applicantcardroot-class-name1"

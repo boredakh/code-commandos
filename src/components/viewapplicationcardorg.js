@@ -34,7 +34,7 @@ const Viewapplicationcardorg = (props) => {
       <span>
         {props.text11 ?? (
           <Fragment>
-            <span className="viewapplicationcardorg-text9">{props.county || 'N/A'}</span>
+            <span className="viewapplicationcardorg-text9">{props.city_county || 'N/A'}</span>
           </Fragment>
         )}
       </span>

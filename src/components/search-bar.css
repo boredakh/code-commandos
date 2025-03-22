@@ -113,7 +113,7 @@
  
 .search-bar-textinput1 {
   width: 100%;
-  border-color: #4b32c1;
+  border-color: #002d7e;
   background-color: transparent;
 }
  
@@ -147,7 +147,7 @@
 .search-bar-textinput2 {
   width: 50%;
   align-self: center;
-  border-color: #4b32c1;
+  border-color: #002d7e;
   background-color: transparent;
 }
  
@@ -160,7 +160,7 @@
 }
  
 .search-bar-action1 {
-  color: #4b32c1;
+  color: #002d7e;
   display: flex;
   border-color: #000000;
   flex-direction: row;

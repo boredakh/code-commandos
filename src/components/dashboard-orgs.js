@@ -275,7 +275,7 @@ const DashboardOrgs = (props) => {
                         text11={
                           <Fragment>
                             <span className="dashboard-orgs-text18">
-                              {application.county || 'N/A'} {/* Display county or 'N/A' if not available */}
+                              {application.city_county || 'N/A'} {/* Display county or 'N/A' if not available */}
                             </span>
                           </Fragment>
                         }

@@ -15,38 +15,56 @@ const Listingvolin = (props) => {
         alert('Invalid listing ID. Please try again.');
         return;
       }
-  
+
       // Get the current user
       const { data: { user }, error: userError } = await supabase.auth.getUser();
-  
+
       if (userError) {
         console.error('Error fetching user:', userError);
         alert('You must be signed in to apply.');
         return;
       }
-  
+
       if (!user) {
         alert('You must be signed in to apply.');
         return;
       }
-  
+
       console.log('User:', user); // Debug: Log the user object
-  
+
       // Step 1: Fetch the user's details from the `users_vol` table
       const { data: userDetails, error: userDetailsError } = await supabase
         .from('users_vol')
-        .select('first_name, last_name, age_group, experience')
+        .select(`
+          first_name,
+          last_name,
+          age_group,
+          experience,
+          city_county,
+          gender,
+          telephone,
+          volunteer_interest,
+          previous_volunteer,
+          previous_work_details,
+          skills_experience,
+          availability_days,
+          availability_duration,
+          languages,
+          referee_name,
+          referee_email,
+          referee_relationship
+        `)
         .eq('id', user.id)
         .single();
-  
+
       if (userDetailsError) {
         console.error('Error fetching user details:', userDetailsError);
         console.error('Error Details:', userDetailsError.details); // Debug: Log error details
         throw userDetailsError;
       }
-  
+
       console.log('User Details:', userDetails); // Debug: Log user details
-  
+
       // Step 2: Insert the application data into the `applications` table
       const { data, error } = await supabase
         .from('applications')
@@ -59,16 +77,31 @@ const Listingvolin = (props) => {
             user_email: user.email,
             age_group: userDetails.age_group, // Include age group
             experience: userDetails.experience, // Include experience
-            applied_at: new Date().toISOString(),
+            applied_at: new Date().toISOString(), // Timestamp of application
+
+            // Additional fields
+            city_county: userDetails.city_county, // City/County
+            gender: userDetails.gender, // Gender
+            telephone: userDetails.telephone, // Telephone
+            volunteer_interest: userDetails.volunteer_interest, // Volunteer interest
+            previous_volunteer: userDetails.previous_volunteer, // Previous volunteer experience (boolean)
+            previous_work_details: userDetails.previous_work_details, // Details of previous work
+            skills_experience: userDetails.skills_experience, // Skills and experience
+            availability_days: userDetails.availability_days, // Availability (days)
+            availability_duration: userDetails.availability_duration, // Availability (duration)
+            languages: userDetails.languages, // Languages spoken
+            referee_name: userDetails.referee_name, // Referee name
+            referee_email: userDetails.referee_email, // Referee email
+            referee_relationship: userDetails.referee_relationship, // Referee relationship
           },
         ]);
-  
+
       if (error) {
         console.error('Insert Error:', error);
         console.error('Error Details:', error.details);
         throw error;
       }
-  
+
       console.log('Application submitted successfully:', data);
       alert('Your application has been submitted!');
     } catch (error) {
