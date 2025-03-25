@@ -114,7 +114,7 @@
 .search-bar-textinput1 {
   width: 100%;
   border-color: #002d7e;
-  background-color: transparent;
+  background-color: #ffffff;
 }
  
 .search-bar-password {
@@ -148,7 +148,7 @@
   width: 50%;
   align-self: center;
   border-color: #002d7e;
-  background-color: transparent;
+  background-color: #ffffff;
 }
  
 /* Center the search button */
