@@ -21,7 +21,7 @@
 .call2a-home-in-org-action11 {
   color: #002d7e;
   display: flex;
-  border-color: #000000;
+  border-color: var(--dl-color-theme-neutral-dark);
   flex-direction: row;
   text-decoration: none;
   background-color: #ffffff;
@@ -30,7 +30,7 @@
 .call2a-home-in-org-action12 {
   color: #002d7e;
   display: flex;
-  border-color: #000000;
+  border-color: var(--dl-color-theme-neutral-dark);
   flex-direction: row;
   text-decoration: none;
   background-color: #ffffff;
