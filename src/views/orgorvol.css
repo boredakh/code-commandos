@@ -4,6 +4,7 @@
     min-height: 100vh;
     align-items: center;
     flex-direction: column;
+    background-color: #002d7e;
   }
    
   .orgorvol-text10 {
@@ -68,6 +69,7 @@
    
   .orgorvol-text25 {
     font-family: "Arial";
+    background-color: #002d7e;
   }
    
   .orgorvol-text26 {
