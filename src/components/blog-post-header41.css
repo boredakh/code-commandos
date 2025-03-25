@@ -2,11 +2,13 @@
   display: flex;
   position: relative;
   align-items: center;
+  background-color:#001a6f;
 }
  
 .blog-post-header41-max-width {
   gap: var(--dl-space-space-fiveunits);
   width: 100%;
+  background-color:#001a6f;
   display: flex;
   align-items: flex-start;
   flex-direction: column;

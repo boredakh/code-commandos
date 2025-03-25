@@ -1,83 +1,192 @@
 .applicantcard-card {
-    color: var(--dl-color-theme-neutral-light);
+  color: var(--dl-color-theme-neutral-light);
+  width: 100%;
+  max-width: 100%; /* Added max-width for better profile layout */
+  height: auto;
+  display: flex;
+  position: relative;
+  align-self: flex-start;
+  align-items: flex-start; /* Changed to flex-start for better profile alignment */
+  flex-direction: column;
+  justify-content: center;
+  background-color: #002d7e;
+  padding: 2rem; /* Increased padding */
+  border-radius: 12px; /* Added rounded corners */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Added subtle shadow */
+  margin: 0 auto; /* Center the card */
+}
+
+/* Header section */
+.thq-heading-2 {
+  width: 100%;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Fields container */
+.applicantcard-field {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.applicantcard-field-title {
+  font-weight: 600;
+  min-width: 180px;
+  color: rgba(255, 255, 255, 0.8);
+  margin-right: 1rem;
+}
+
+.applicantcard-text18,
+.applicantcard-text19,
+.applicantcard-text20,
+.applicantcard-text21,
+.applicantcard-text22,
+.applicantcard-text23,
+.applicantcard-text24,
+.applicantcard-text25,
+.applicantcard-text26,
+.applicantcard-text27,
+.applicantcard-text28,
+.applicantcard-text29,
+.applicantcard-text30,
+.applicantcard-text31,
+.applicantcard-text32,
+.applicantcard-text33,
+.applicantcard-text34,
+.applicantcard-text35 {
+  display: inline-block;
+  color: white;
+  flex: 1;
+  min-width: 200px;
+}
+
+/* Buttons section */
+.applicantcard-actions {
+  width: 100%;
+  display: flex;
+  gap: var(--dl-space-space-unit);
+  flex-wrap: wrap;
+  margin: 1.5rem 0;
+}
+
+.applicantcard-button {
+  flex: 1;
+  min-width: 200px;
+  text-decoration: none;
+  background-color: var(--dl-color-theme-primary1);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  text-align: center;
+  transition: background-color 0.2s;
+}
+
+.applicantcard-button:hover {
+  background-color: var(--dl-color-theme-primary2);
+}
+
+.applicantcard-action1 {
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Reviews Section - Enhanced */
+.applicantcard-reviews-section {
+  width: 100%;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.applicantcard-reviews-section h3 {
+  color: white;
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.applicantcard-review {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  transition: transform 0.2s;
+}
+
+.applicantcard-review:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.applicantcard-review-rating {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 0.5rem;
+}
+
+.applicantcard-review-date {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.85rem;
+}
+
+.applicantcard-review-comment {
+  margin-top: 0.5rem;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.5;
+  padding-left: 0.5rem;
+  border-left: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.applicantcard-no-reviews {
+  color: rgba(255, 255, 255, 0.6);
+  font-style: italic;
+  text-align: center;
+  padding: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+  .applicantcard-card {
     width: 100%;
-    height: auto;
-    display: flex;
-    position: relative;
-    align-self: flex-start;
-    align-items: center;
+    padding: 1.5rem;
+  }
+  
+  .applicantcard-field {
     flex-direction: column;
-    justify-content: center;
-    background-color: #002d7e;
   }
-   
-  .applicantcard-text15 {
-    text-align: center;
+  
+  .applicantcard-field-title {
+    margin-bottom: 0.25rem;
   }
-   
-  .applicantcard-text16 {
-    text-align: center;
-  }
-   
+  
   .applicantcard-actions {
-    gap: var(--dl-space-space-unit);
-    flex-wrap: wrap;
+    flex-direction: column;
   }
-   
+  
   .applicantcard-button {
-    flex: 1;
-    text-decoration: none;
+    width: 100%;
   }
-   
-  .applicantcard-action1 {
-    text-align: center;
-  }
-   
-  .applicantcard-text17 {
-    display: inline-block;
-  }
-   
-  .applicantcard-text18 {
-    display: inline-block;
-  }
-   
-  .applicantcard-text19 {
-    display: inline-block;
-  }
-   
-  .applicantcard-text20 {
-    display: inline-block;
-  }
-   
-  .applicantcard-text21 {
-    display: inline-block;
-  }
-   
-  .applicantcard-text22 {
-    display: inline-block;
-  }
-   
-  .applicantcard-text23 {
-    display: inline-block;
-  }
-   
-  .applicantcard-text24 {
-    display: inline-block;
-  }
-   
-  
-   
-  
-   
-  @media(max-width: 767px) {
-    .applicantcard-card {
-      width: 100%;
-    }
-  }
-   
-  @media(max-width: 479px) {
-    .applicantcard-button {
-      width: 100%;
-    }
+}
+
+@media (max-width: 479px) {
+  .applicantcard-card {
+    padding: 1rem;
   }
   
+  .thq-heading-2 {
+    font-size: 1.5rem;
+  }
+  
+  .applicantcard-reviews-section h3 {
+    font-size: 1.2rem;
+  }
+}

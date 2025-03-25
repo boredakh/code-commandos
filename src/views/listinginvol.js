@@ -1,53 +1,51 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
-import { useParams } from 'react-router-dom'; // Import useParams to access the id parameter
+import { useParams } from 'react-router-dom';
 import NavBarIn from '../components/nav-bar-in';
 import Listingvolin from '../components/listingvolin';
 import Footer from '../components/footer';
 import './listinginvol.css';
-import { supabase } from '../components/supabaseclient'; // Adjusted import path
+import { supabase } from '../components/supabaseclient';
 
 const Listinginvol = (props) => {
-  const { id } = useParams(); // Get the id parameter from the URL
+  const { id } = useParams();
   const [listing, setListing] = useState(null);
-  const [organisationRating, setOrganisationRating] = useState(null); // State for organisation's average rating
+  const [organisationRating, setOrganisationRating] = useState(null);
+  const [organisationReviews, setOrganisationReviews] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchListingAndRating = async () => {
+    const fetchData = async () => {
       try {
-        // Fetch the listing details
+        // Original listing fetch
         const { data, error } = await supabase
           .from('listing_details')
           .select('*')
           .eq('id', id)
-          .single(); // Fetch a single row based on the id
+          .single();
 
-        if (error) {
-          throw error;
-        }
-
+        if (error) throw error;
         setListing(data);
 
-        // Fetch the organisation's average rating
-        const { data: ratingData, error: ratingError } = await supabase
+        // Modified to fetch reviews with comments
+        const { data: reviewsData, error: reviewsError } = await supabase
           .from('reviews')
-          .select('rating')
-          .eq('reviewed_id', data.created_by) // Use created_by as the reviewed_id
-          .eq('reviewed_type', 'organisation'); // Filter by review type
+          .select('rating, comment, created_at')
+          .eq('reviewed_id', data.created_by)
+          .eq('reviewed_type', 'organisation')
+          .order('created_at', { ascending: false });
 
-        if (ratingError) {
-          throw ratingError;
-        }
+        if (reviewsError) throw reviewsError;
+        setOrganisationReviews(reviewsData);
 
-        // Calculate the average rating
-        if (ratingData.length > 0) {
-          const totalRating = ratingData.reduce((sum, review) => sum + review.rating, 0);
-          const average = totalRating / ratingData.length;
-          setOrganisationRating(average.toFixed(1)); // Round to 1 decimal place
+        // Original rating calculation
+        if (reviewsData.length > 0) {
+          const totalRating = reviewsData.reduce((sum, review) => sum + review.rating, 0);
+          const average = totalRating / reviewsData.length;
+          setOrganisationRating(average.toFixed(1));
         } else {
-          setOrganisationRating('No reviews yet'); // Handle case with no reviews
+          setOrganisationRating('No reviews yet');
         }
       } catch (error) {
         setError(error.message);
@@ -56,76 +54,39 @@ const Listinginvol = (props) => {
       }
     };
 
-    fetchListingAndRating();
+    fetchData();
   }, [id]);
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
-
-  if (!listing) {
-    return <div>Listing not found</div>;
-  }
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error}</div>;
+  if (!listing) return <div>Listing not found</div>;
 
   return (
     <div className="listinginvol-container">
       <Helmet>
         <title>Listinginvol - Which Second Hand Lion</title>
-        <meta
-          property="og:title"
-          content="Listinginvol - Which Second Hand Lion"
-        />
+        <meta property="og:title" content="Listinginvol - Which Second Hand Lion" />
       </Helmet>
-      <NavBarIn
-        // ... (your existing NavBarIn props)
-      />
+      
+      <NavBarIn {...props.navProps} />
+      
       <Listingvolin
-        feature1Title={
-          <Fragment>
-            <span className="listinginvol-text26">{listing.job_title}</span>
-          </Fragment>
-        }
-        text121={
-          <Fragment>
-            <span className="listinginvol-text27">{listing.commitment}</span>
-          </Fragment>
-        }
-        text1={
-          <Fragment>
-            <span className="listinginvol-text28">{listing.organisation_name}</span>
-          </Fragment>
-        }
-        text12={
-          <Fragment>
-            <span className="listinginvol-text29">{listing.industry}</span>
-          </Fragment>
-        }
-        text11={
-          <Fragment>
-            <span className="listinginvol-text30">{listing.postcode}</span>
-          </Fragment>
-        }
-        feature1Description={
-          <Fragment>
-            <span className="listinginvol-text31">{listing.listing_description}</span>
-          </Fragment>
-        }
-        mainAction={
-          <Fragment>
-            <span className="listinginvol-text32">Apply</span>
-          </Fragment>
-        }
-        listingId={listing.id} // Pass the listingId prop
-        organisationRating={organisationRating} // Pass the organisation's average rating
+        // All original props unchanged
+        feature1Title={<span className="listinginvol-text26">{listing.job_title}</span>}
+        text121={<span className="listinginvol-text27">{listing.commitment}</span>}
+        text1={<span className="listinginvol-text28">{listing.organisation_name}</span>}
+        text12={<span className="listinginvol-text29">{listing.industry}</span>}
+        text11={<span className="listinginvol-text30">{listing.postcode}</span>}
+        feature1Description={<span className="listinginvol-text31">{listing.listing_description}</span>}
+        mainAction={<span className="listinginvol-text32">Apply</span>}
+        listingId={listing.id}
+        organisationRating={organisationRating}
+        // Only addition:
+        organisationReviews={organisationReviews}
         rootClassName="listingvolinroot-class-name"
       />
-      <Footer
-        // ... (your existing Footer props)
-      />
+      
+      <Footer {...props.footerProps} />
     </div>
   );
 };

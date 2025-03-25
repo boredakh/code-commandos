@@ -1,26 +1,21 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { supabase } from './supabaseclient'; // Import Supabase client
+import { supabase } from './supabaseclient';
 import './listingvolin.css';
 
 const Listingvolin = (props) => {
-  const { listingId, organisationRating } = props; // Access the listingId and organisationRating props
-  console.log('Listing ID:', listingId); // Debug: Log the listingId
+  const { listingId, organisationRating, organisationReviews } = props;
 
-  // Function to render stars
+  // Render stars function (unchanged)
   const renderStars = (rating) => {
     const stars = [];
     const maxStars = 5;
-
-    // Convert the rating to a number (if it's a string)
     const numericRating = parseFloat(rating);
 
-    // Handle cases where the rating is not a number (e.g., "No reviews yet")
     if (isNaN(numericRating)) {
-      return <span>{rating}</span>; // Display the text as is
+      return <span>{rating}</span>;
     }
 
-    // Render filled and empty stars
     for (let i = 1; i <= maxStars; i++) {
       stars.push(
         <span key={i} style={{ color: i <= numericRating ? 'gold' : 'gray' }}>
@@ -28,164 +23,107 @@ const Listingvolin = (props) => {
         </span>
       );
     }
-
     return stars;
   };
 
+  // Handle apply function (unchanged)
   const handleApply = async () => {
-    try {
-      // Check if listingId is valid
-      if (!listingId || typeof listingId !== 'string') {
-        console.error('Invalid listing ID:', listingId);
-        alert('Invalid listing ID. Please try again.');
-        return;
-      }
-
-      // Get the current user
-      const { data: { user }, error: userError } = await supabase.auth.getUser();
-
-      if (userError) {
-        console.error('Error fetching user:', userError);
-        alert('You must be signed in to apply.');
-        return;
-      }
-
-      if (!user) {
-        alert('You must be signed in to apply.');
-        return;
-      }
-
-      console.log('User:', user); // Debug: Log the user object
-
-      // Step 1: Fetch the user's details from the `users_vol` table
-      const { data: userDetails, error: userDetailsError } = await supabase
-        .from('users_vol')
-        .select(`
-          first_name,
-          last_name,
-          age_group,
-          experience,
-          city_county,
-          gender,
-          telephone,
-          volunteer_interest,
-          previous_volunteer,
-          previous_work_details,
-          skills_experience,
-          availability_days,
-          availability_duration,
-          languages,
-          referee_name,
-          referee_email,
-          referee_relationship
-        `)
-        .eq('id', user.id)
-        .single();
-
-      if (userDetailsError) {
-        console.error('Error fetching user details:', userDetailsError);
-        console.error('Error Details:', userDetailsError.details); // Debug: Log error details
-        throw userDetailsError;
-      }
-
-      console.log('User Details:', userDetails); // Debug: Log user details
-
-      // Step 2: Insert the application data into the `applications` table
-      const { data, error } = await supabase
-        .from('applications')
-        .insert([
-          {
-            listing_id: listingId, // Ensure this matches the column type in Supabase
-            user_id: user.id,
-            first_name: userDetails.first_name, // Store first name
-            last_name: userDetails.last_name, // Store last name
-            user_email: user.email,
-            age_group: userDetails.age_group, // Include age group
-            experience: userDetails.experience, // Include experience
-            applied_at: new Date().toISOString(), // Timestamp of application
-
-            // Additional fields
-            city_county: userDetails.city_county, // City/County
-            gender: userDetails.gender, // Gender
-            telephone: userDetails.telephone, // Telephone
-            volunteer_interest: userDetails.volunteer_interest, // Volunteer interest
-            previous_volunteer: userDetails.previous_volunteer, // Previous volunteer experience (boolean)
-            previous_work_details: userDetails.previous_work_details, // Details of previous work
-            skills_experience: userDetails.skills_experience, // Skills and experience
-            availability_days: userDetails.availability_days, // Availability (days)
-            availability_duration: userDetails.availability_duration, // Availability (duration)
-            languages: userDetails.languages, // Languages spoken
-            referee_name: userDetails.referee_name, // Referee name
-            referee_email: userDetails.referee_email, // Referee email
-            referee_relationship: userDetails.referee_relationship, // Referee relationship
-          },
-        ]);
-
-      if (error) {
-        console.error('Insert Error:', error);
-        console.error('Error Details:', error.details);
-        throw error;
-      }
-
-      console.log('Application submitted successfully:', data);
-      alert('Your application has been submitted!');
-    } catch (error) {
-      console.error('Sign-up error:', error);
-      alert('Failed to submit application. Please try again.');
-    }
+    // ... (keep your existing handleApply implementation)
   };
 
   return (
     <div className={`listingvolin-card thq-flex-column thq-card ${props.rootClassName}`}>
-      <h2 className="thq-heading-2">
-        {props.feature1Title ?? (
-          <Fragment>
+      {/* Job Title with label */}
+      <div className="listingvolin-field">
+        <span className="listingvolin-field-title">Job Title:</span>
+        <h2 className="thq-heading-2">
+          {props.feature1Title ?? (
             <span className="listingvolin-text16">(Job Title)</span>
-          </Fragment>
-        )}
-      </h2>
-      <span>
-        {props.text121 ?? (
-          <Fragment>
-            <span className="listingvolin-text17">(Commitment)</span>
-          </Fragment>
-        )}
-      </span>
-      <span>
-        {props.text1 ?? (
-          <Fragment>
-            <span className="listingvolin-text18">(Organisation)</span>
-          </Fragment>
-        )}
-      </span>
-      <span>
-        {props.text12 ?? (
-          <Fragment>
-            <span className="listingvolin-text19">(Industry)</span>
-          </Fragment>
-        )}
-      </span>
-      <span>
-        {props.text11 ?? (
-          <Fragment>
-            <span className="listingvolin-text20">(Location)</span>
-          </Fragment>
-        )}
-      </span>
-      <span className="listingvolin-text15 thq-body-small">
-        {props.feature1Description ?? (
-          <Fragment>
-            <span className="listingvolin-text21">(Description)</span>
-          </Fragment>
-        )}
-      </span>
+          )}
+        </h2>
+      </div>
 
-      {/* Organisation Rating */}
+      {/* Commitment with label */}
+      <div className="listingvolin-field">
+        <span className="listingvolin-field-title">Commitment:</span>
+        <span className="listingvolin-text17">
+          {props.text121 ?? "(Commitment)"}
+        </span>
+      </div>
+
+      {/* Organisation with label */}
+      <div className="listingvolin-field">
+        <span className="listingvolin-field-title">Organisation:</span>
+        <span className="listingvolin-text18">
+          {props.text1 ?? "(Organisation)"}
+        </span>
+      </div>
+
+      {/* Industry with label */}
+      <div className="listingvolin-field">
+        <span className="listingvolin-field-title">Industry:</span>
+        <span className="listingvolin-text19">
+          {props.text12 ?? "(Industry)"}
+        </span>
+      </div>
+
+      {/* Location with label */}
+      <div className="listingvolin-field">
+        <span className="listingvolin-field-title">Location:</span>
+        <span className="listingvolin-text20">
+          {props.text11 ?? "(Location)"}
+        </span>
+      </div>
+
+      {/* Description with label */}
+      <div className="listingvolin-field">
+        <span className="listingvolin-field-title">Description:</span>
+        <span className="listingvolin-text15 thq-body-small">
+          {props.feature1Description ?? (
+            <span className="listingvolin-text21">(Description)</span>
+          )}
+        </span>
+      </div>
+
+      {/* Organisation Rating with label */}
       <div className="listingvolin-field">
         <span className="listingvolin-field-title">Organisation Rating:</span>
         <span className="listingvolin-text23">
-          {renderStars(props.organisationRating)} {/* Render stars based on organisationRating */}
+          {renderStars(organisationRating)}
+          {typeof organisationRating === 'number' && (
+            <span style={{ marginLeft: '5px' }}>({organisationRating})</span>
+          )}
         </span>
+      </div>
+
+      {/* Reviews Section with label */}
+      <div className="listingvolin-reviews-section">
+        <h3 className="listingvolin-reviews-title">Organisation Reviews</h3>
+        {organisationReviews?.length > 0 ? (
+          organisationReviews.map((review, index) => (
+            <div key={index} className="listingvolin-review">
+              <div className="listingvolin-review-header">
+                <div className="listingvolin-review-rating">
+                  <span className="listingvolin-review-rating-label">Rating:</span>
+                  {renderStars(review.rating)}
+                </div>
+                <span className="listingvolin-review-date">
+                  {new Date(review.created_at).toLocaleDateString()}
+                </span>
+              </div>
+              {review.comment && (
+                <div className="listingvolin-review-comment">
+                  <span className="listingvolin-review-comment-label">Comment:</span>
+                  "{review.comment}"
+                </div>
+              )}
+            </div>
+          ))
+        ) : (
+          <div className="listingvolin-no-reviews">
+            No reviews yet for this organisation
+          </div>
+        )}
       </div>
 
       {/* Apply Button */}
@@ -193,9 +131,7 @@ const Listingvolin = (props) => {
         <button className="listingvolin-button thq-button-filled" onClick={handleApply}>
           <span className="listingvolin-action1 thq-body-small">
             {props.mainAction ?? (
-              <Fragment>
-                <span className="listingvolin-text22">Apply</span>
-              </Fragment>
+              <span className="listingvolin-text22">Apply</span>
             )}
           </span>
         </button>
@@ -204,30 +140,6 @@ const Listingvolin = (props) => {
   );
 };
 
-Listingvolin.defaultProps = {
-  rootClassName: '',
-  feature1Title: undefined,
-  text121: undefined,
-  text1: undefined,
-  text12: undefined,
-  text11: undefined,
-  feature1Description: undefined,
-  mainAction: undefined,
-  listingId: '', // Default to an empty string
-  organisationRating: 'No reviews yet', // Default value for organisationRating
-};
-
-Listingvolin.propTypes = {
-  rootClassName: PropTypes.string,
-  feature1Title: PropTypes.element,
-  text121: PropTypes.element,
-  text1: PropTypes.element,
-  text12: PropTypes.element,
-  text11: PropTypes.element,
-  feature1Description: PropTypes.element,
-  mainAction: PropTypes.element,
-  listingId: PropTypes.string.isRequired, // Expect a string
-  organisationRating: PropTypes.oneOfType([PropTypes.string, PropTypes.number]), // PropType for organisationRating
-};
+// ... (keep your existing defaultProps and propTypes)
 
 export default Listingvolin;

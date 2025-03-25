@@ -1,71 +1,198 @@
 .listingvolin-card {
   color: var(--dl-color-theme-neutral-light);
   width: 100%;
+  max-width: 100%;
   height: auto;
   display: flex;
   position: relative;
   align-self: flex-start;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: column;
   justify-content: center;
   background-color: #002d7e;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  margin: 0 auto;
 }
- 
-.listingvolin-text15 {
-  text-align: center;
+
+/* Header */
+.thq-heading-2 {
+  width: 100%;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  color: white;
 }
- 
-.listingvolin-actions {
-  gap: var(--dl-space-space-unit);
+
+/* Fields container */
+.listingvolin-field {
+  width: 100%;
+  display: flex;
   flex-wrap: wrap;
+  margin-bottom: 1rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  align-items: baseline;
 }
- 
-.listingvolin-button {
-  flex: 1;
+
+.listingvolin-field-title {
+  font-weight: 600;
+  min-width: 180px;
+  color: rgba(255, 255, 255, 0.8);
+  margin-right: 1rem;
 }
- 
-.listingvolin-action1 {
-  text-align: center;
-}
- 
-.listingvolin-text16 {
-  display: inline-block;
-}
- 
-.listingvolin-text17 {
-  display: inline-block;
-}
- 
-.listingvolin-text18 {
-  display: inline-block;
-}
- 
-.listingvolin-text19 {
-  display: inline-block;
-}
- 
-.listingvolin-text20 {
-  display: inline-block;
-}
- 
-.listingvolin-text21 {
-  display: inline-block;
-}
- 
+
+/* Text elements */
+.listingvolin-text15,
+.listingvolin-text16,
+.listingvolin-text17,
+.listingvolin-text18, 
+.listingvolin-text19,
+.listingvolin-text20,
+.listingvolin-text21,
 .listingvolin-text22 {
   display: inline-block;
+  color: white;
+  flex: 1;
+  min-width: 200px;
 }
- 
 
- 
-@media(max-width: 767px) {
+/* Buttons section */
+.listingvolin-actions {
+  width: 100%;
+  display: flex;
+  gap: var(--dl-space-space-unit);
+  flex-wrap: wrap;
+  margin: 1.5rem 0;
+}
+
+.listingvolin-button {
+  flex: 1;
+  min-width: 200px;
+  text-decoration: none;
+  background-color: var(--dl-color-theme-primary1);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  text-align: center;
+  transition: background-color 0.2s;
+  border: none;
+  cursor: pointer;
+}
+
+.listingvolin-button:hover {
+  background-color: var(--dl-color-theme-primary2);
+}
+
+.listingvolin-action1 {
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Reviews Section */
+.listingvolin-reviews-section {
+  width: 100%;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.listingvolin-reviews-title {
+  color: white;
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.listingvolin-review {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  transition: transform 0.2s;
+}
+
+.listingvolin-review:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.listingvolin-review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.listingvolin-review-rating {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.listingvolin-review-rating-label {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+}
+
+.listingvolin-review-date {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.85rem;
+}
+
+.listingvolin-review-comment {
+  margin-top: 0.5rem;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.5;
+  padding-left: 0.5rem;
+  border-left: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.listingvolin-no-reviews {
+  color: rgba(255, 255, 255, 0.6);
+  font-style: italic;
+  text-align: center;
+  padding: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
   .listingvolin-card {
     width: 100%;
+    padding: 1.5rem;
   }
-}
- 
-@media(max-width: 479px) {
+  
+  .listingvolin-field {
+    flex-direction: column;
+  }
+  
+  .listingvolin-field-title {
+    margin-bottom: 0.25rem;
+  }
+  
+  .listingvolin-actions {
+    flex-direction: column;
+  }
+  
   .listingvolin-button {
     width: 100%;
+  }
+  
+  .thq-heading-2 {
+    font-size: 1.5rem;
+  }
+  
+  .listingvolin-reviews-title {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 479px) {
+  .listingvolin-card {
+    padding: 1rem;
   }
 }
