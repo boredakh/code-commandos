@@ -6,6 +6,7 @@
   align-items: center;
   flex-direction: column;
   justify-content: center;
+  background-color: #001a6f;
 }
  
 .footer-max-width {
@@ -239,7 +240,10 @@
   display: inline-block;
 }
  
-.footerroot-class-name {
+.footerroot-class
+
+
+-name {
   background-color: #002d7e;
 }
  
@@ -278,7 +282,7 @@
 
  
 .footerroot-class-name17 {
-  background-color: #4b32c1;
+  background-color: #001a6f;
 }
  
 

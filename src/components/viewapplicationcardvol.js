@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom'; // Import Link
 import './viewapplicationcardvol.css';
 
 const Viewapplicationcardvol = (props) => {
+  // Extract the created_by value (organisation ID) from props
+  const organisationId = props.createdBy;
+
   return (
     <div
       className={`viewapplicationcardvol-card thq-flex-column thq-card ${props.rootClassName}`}
@@ -39,14 +42,24 @@ const Viewapplicationcardvol = (props) => {
         )}
       </span>
       <div className="viewapplicationcardvol-actions thq-flex-row">
-        <Link to={`/listinginvol/${props.listingId}`}> {/* Link to the role's page */}
-          <button className="viewapplicationcardvol-button thq-button-filled">
+        {/* View Role Button */}
+        <Link to={`/listinginvol/${props.listingId}`}>
+          <button className="viewapplicationcardvol-button">
             <span className="viewapplicationcardvol-action1 thq-body-small">
               {props.mainAction ?? (
                 <Fragment>
                   <span className="viewapplicationcardvol-text9">View Role</span>
                 </Fragment>
               )}
+            </span>
+          </button>
+        </Link>
+
+        {/* Leave Review Button */}
+        <Link to={`/listing/${props.listingId}/review`}>
+          <button className="viewapplicationcardvol-button">
+            <span className="viewapplicationcardvol-action1 thq-body-small">
+              Leave Review
             </span>
           </button>
         </Link>
@@ -63,6 +76,7 @@ Viewapplicationcardvol.defaultProps = {
   feature1Description: undefined,
   mainAction: undefined,
   listingId: '', // Add listingId to defaultProps
+  createdBy: '', // Add createdBy to defaultProps
 };
 
 Viewapplicationcardvol.propTypes = {
@@ -73,6 +87,7 @@ Viewapplicationcardvol.propTypes = {
   feature1Description: PropTypes.element,
   mainAction: PropTypes.element,
   listingId: PropTypes.string.isRequired, // Ensure listingId is required
+  createdBy: PropTypes.string.isRequired, // Ensure createdBy is required
 };
 
 export default Viewapplicationcardvol;

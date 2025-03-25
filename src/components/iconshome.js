@@ -102,11 +102,12 @@ const Iconshome = (props) => {
                     src={props.imageSrc1}
                     className="iconshome-image3"
                   />
+                  
                   <h3 className="iconshome-text14 thq-heading-3">
                     {props.plan3Price ?? (
                       <Fragment>
                         <span className="iconshome-text67">
-                          <span className="iconshome-text68">Find a match</span>
+                          <span className="iconshome-text68"style={{color: '#ffa566'}}>Find a match</span>
                           <br></br>
                           <br></br>
                         </span>

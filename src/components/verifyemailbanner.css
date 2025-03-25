@@ -3,6 +3,7 @@
   display: flex;
   position: relative;
   align-items: center;
+  background-color: #002d7e;
 }
  
 .verifyemailbanner-max-width {
@@ -10,6 +11,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  background-color: #002d7e;
 }
  
 .verifyemailbanner-container2 {

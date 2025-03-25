@@ -5,6 +5,7 @@
   align-items: center;
   flex-direction: column;
   justify-content: center;
+  background-color: #002d7e;
 }
  
 .sign-invol-max-width {
@@ -14,7 +15,7 @@
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  background-color: #ffffff;
+  background-color: #002d7e;
 }
  
 .sign-invol-form-root {
@@ -74,7 +75,7 @@
  
 .sign-invol-textinput1 {
   width: 100%;
-  background-color: transparent;
+  background-color: #ffffff;
 }
  
 .sign-invol-password {
@@ -112,7 +113,7 @@
 .sign-invol-textinput2 {
   width: 100%;
   border-color: #002d7e;
-  background-color: transparent;
+  background-color: #ffffff;
 }
  
 .sign-invol-container3 {
@@ -136,7 +137,6 @@
   width: 100%;
   align-self: center;
   border-color: #000000;
-  background-color: #002d7e;
 }
  
 .sign-invol-text14 {
@@ -209,15 +209,15 @@
 }
  
 .sign-invol-button2 {
-  color: #002d7e;
   width: 100%;
   align-self: center;
-  border-color: #002d7e;
   text-decoration: none;
+  background-color: var(--dl-color-theme-primary1);
 }
  
 .sign-invol-text17 {
   text-align: center;
+  color: #ffffff;
 }
  
 .sign-invol-text18 {

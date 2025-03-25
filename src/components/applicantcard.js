@@ -4,6 +4,56 @@ import PropTypes from 'prop-types';
 import './applicantcard.css';
 
 const Applicantcard = (props) => {
+  // Function to render stars
+  const renderStars = (rating) => {
+    const maxStars = 5;
+    const fullStars = Math.floor(rating); // Number of full stars
+    const hasHalfStar = rating % 1 !== 0; // Check if there's a half star
+    const emptyStars = maxStars - fullStars - (hasHalfStar ? 1 : 0); // Number of empty stars
+  
+    const stars = [];
+  
+    // Render full stars
+    for (let i = 0; i < fullStars; i++) {
+      stars.push(
+        <span key={`full-${i}`} style={{ color: 'gold' }}>
+          ★
+        </span>
+      );
+    }
+  
+    // Render half star if needed
+    if (hasHalfStar) {
+      stars.push(
+        <span key="half" style={{ color: 'gold', position: 'relative' }}>
+          ★
+          <span
+            style={{
+              position: 'absolute',
+              left: '50%',
+              width: '50%',
+              overflow: 'hidden',
+              color: 'gray', // Gray for the empty half
+            }}
+          >
+            ★
+          </span>
+        </span>
+      );
+    }
+  
+    // Render empty stars
+    for (let i = 0; i < emptyStars; i++) {
+      stars.push(
+        <span key={`empty-${i}`} style={{ color: 'gray' }}>
+          ☆
+        </span>
+      );
+    }
+  
+    return stars;
+  };
+ 
   return (
     <div className={`applicantcard-card thq-flex-column thq-card ${props.rootClassName}`}>
       <h2 className="thq-heading-2">
@@ -15,6 +65,26 @@ const Applicantcard = (props) => {
           </Fragment>
         )}
       </h2>
+
+      {/* Average Rating */}
+      <div className="applicantcard-field">
+        <span className="applicantcard-field-title"></span>
+        <span className="applicantcard-text18">
+          {renderStars(props.averageRating)}
+        </span>
+      </div>
+
+      {/* Button to Review Submission Form */}
+      <div className="applicantcard-actions thq-flex-row">
+        <Link
+          to={`/applicant/${props.applicationId}/review`} // Redirect to the review form
+          className="applicantcard-button thq-button-filled"
+        >
+          <span className="applicantcard-action1 thq-body-small">
+            Leave a Review
+          </span>
+        </Link>
+      </div>
 
       {/* Experience */}
       <div className="applicantcard-field">
@@ -168,6 +238,8 @@ Applicantcard.defaultProps = {
   text23: undefined,
   text24: undefined,
   text25: undefined,
+  averageRating: 'No reviews yet', // Default value for averageRating
+  applicationId: '', // Add applicationId to defaultProps
 };
 
 Applicantcard.propTypes = {
@@ -193,6 +265,8 @@ Applicantcard.propTypes = {
   text23: PropTypes.element,
   text24: PropTypes.element,
   text25: PropTypes.element,
+  averageRating: PropTypes.oneOfType([PropTypes.string, PropTypes.number]), // PropType for averageRating
+  applicationId: PropTypes.string.isRequired, // PropType for applicationId
 };
 
 export default Applicantcard;

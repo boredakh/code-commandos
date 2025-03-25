@@ -65,7 +65,7 @@
   border-style: solid;
   border-width: 1px;
   flex-direction: column;
-  background-color: var(--dl-color-theme-accent1);
+  background-color: #002d7e
 }
  
 .search-bar-price1 {
@@ -165,7 +165,7 @@
   border-color: #000000;
   flex-direction: row;
   text-decoration: none;
-  background-color: #ffffff;
+  
 }
  
 .search-bar-container3 {

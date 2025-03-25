@@ -4,8 +4,33 @@ import { supabase } from './supabaseclient'; // Import Supabase client
 import './listingvolin.css';
 
 const Listingvolin = (props) => {
-  const { listingId } = props; // Access the listingId prop
+  const { listingId, organisationRating } = props; // Access the listingId and organisationRating props
   console.log('Listing ID:', listingId); // Debug: Log the listingId
+
+  // Function to render stars
+  const renderStars = (rating) => {
+    const stars = [];
+    const maxStars = 5;
+
+    // Convert the rating to a number (if it's a string)
+    const numericRating = parseFloat(rating);
+
+    // Handle cases where the rating is not a number (e.g., "No reviews yet")
+    if (isNaN(numericRating)) {
+      return <span>{rating}</span>; // Display the text as is
+    }
+
+    // Render filled and empty stars
+    for (let i = 1; i <= maxStars; i++) {
+      stars.push(
+        <span key={i} style={{ color: i <= numericRating ? 'gold' : 'gray' }}>
+          ★
+        </span>
+      );
+    }
+
+    return stars;
+  };
 
   const handleApply = async () => {
     try {
@@ -154,6 +179,16 @@ const Listingvolin = (props) => {
           </Fragment>
         )}
       </span>
+
+      {/* Organisation Rating */}
+      <div className="listingvolin-field">
+        <span className="listingvolin-field-title">Organisation Rating:</span>
+        <span className="listingvolin-text23">
+          {renderStars(props.organisationRating)} {/* Render stars based on organisationRating */}
+        </span>
+      </div>
+
+      {/* Apply Button */}
       <div className="listingvolin-actions thq-flex-row">
         <button className="listingvolin-button thq-button-filled" onClick={handleApply}>
           <span className="listingvolin-action1 thq-body-small">
@@ -179,6 +214,7 @@ Listingvolin.defaultProps = {
   feature1Description: undefined,
   mainAction: undefined,
   listingId: '', // Default to an empty string
+  organisationRating: 'No reviews yet', // Default value for organisationRating
 };
 
 Listingvolin.propTypes = {
@@ -191,6 +227,7 @@ Listingvolin.propTypes = {
   feature1Description: PropTypes.element,
   mainAction: PropTypes.element,
   listingId: PropTypes.string.isRequired, // Expect a string
+  organisationRating: PropTypes.oneOfType([PropTypes.string, PropTypes.number]), // PropType for organisationRating
 };
 
 export default Listingvolin;

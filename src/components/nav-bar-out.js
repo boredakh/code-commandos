@@ -26,7 +26,7 @@ const NavBarOut = (props) => {
             >
               {props.link1 ?? (
                 <Fragment>
-                  <span className="nav-bar-out-text15">About Us</span>
+                  <span  className="nav-bar-out-text15" style={{ color: '#000000', display: 'inline-block' }}>About Us</span>
                 </Fragment>
               )}
             </Link>

@@ -10,12 +10,14 @@ import { supabase } from '../components/supabaseclient'; // Adjusted import path
 const Listinginvol = (props) => {
   const { id } = useParams(); // Get the id parameter from the URL
   const [listing, setListing] = useState(null);
+  const [organisationRating, setOrganisationRating] = useState(null); // State for organisation's average rating
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchListing = async () => {
+    const fetchListingAndRating = async () => {
       try {
+        // Fetch the listing details
         const { data, error } = await supabase
           .from('listing_details')
           .select('*')
@@ -27,6 +29,26 @@ const Listinginvol = (props) => {
         }
 
         setListing(data);
+
+        // Fetch the organisation's average rating
+        const { data: ratingData, error: ratingError } = await supabase
+          .from('reviews')
+          .select('rating')
+          .eq('reviewed_id', data.created_by) // Use created_by as the reviewed_id
+          .eq('reviewed_type', 'organisation'); // Filter by review type
+
+        if (ratingError) {
+          throw ratingError;
+        }
+
+        // Calculate the average rating
+        if (ratingData.length > 0) {
+          const totalRating = ratingData.reduce((sum, review) => sum + review.rating, 0);
+          const average = totalRating / ratingData.length;
+          setOrganisationRating(average.toFixed(1)); // Round to 1 decimal place
+        } else {
+          setOrganisationRating('No reviews yet'); // Handle case with no reviews
+        }
       } catch (error) {
         setError(error.message);
       } finally {
@@ -34,7 +56,7 @@ const Listinginvol = (props) => {
       }
     };
 
-    fetchListing();
+    fetchListingAndRating();
   }, [id]);
 
   if (loading) {
@@ -98,6 +120,7 @@ const Listinginvol = (props) => {
           </Fragment>
         }
         listingId={listing.id} // Pass the listingId prop
+        organisationRating={organisationRating} // Pass the organisation's average rating
         rootClassName="listingvolinroot-class-name"
       />
       <Footer

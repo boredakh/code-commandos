@@ -106,16 +106,46 @@ const DashboardOrgs = (props) => {
   const fetchApplications = async () => {
     setLoadingApplications(true);
     try {
-      // Fetch all applications
-      const { data, error } = await supabase
-        .from('applications')
-        .select('*'); // Fetch all columns from the table
+      // Get the current user (organisation)
+      const { data: { user }, error: userError } = await supabase.auth.getUser();
 
-      if (error) {
-        setErrorApplications(error.message);
-      } else {
-        setApplications(data);
+      if (userError) {
+        setErrorApplications(userError.message);
+        return;
       }
+
+      if (!user) {
+        setErrorApplications('User not authenticated.');
+        return;
+      }
+
+      // Step 1: Fetch listings created by the current organisation
+      const { data: listings, error: listingsError } = await supabase
+        .from('listing_details')
+        .select('id') // Fetch only the IDs of the listings
+        .eq('created_by', user.id); // Filter by the current organisation's ID
+
+      if (listingsError) {
+        setErrorApplications(listingsError.message);
+        return;
+      }
+
+      // Extract listing IDs
+      const listingIds = listings.map((listing) => listing.id);
+
+      // Step 2: Fetch applications associated with the fetched listing IDs
+      const { data: applications, error: applicationsError } = await supabase
+        .from('applications')
+        .select('*')
+        .in('listing_id', listingIds); // Filter applications by listing IDs
+
+      if (applicationsError) {
+        setErrorApplications(applicationsError.message);
+        return;
+      }
+
+      // Set the filtered applications
+      setApplications(applications);
     } catch (err) {
       setErrorApplications('An unexpected error occurred. Please try again.');
     } finally {

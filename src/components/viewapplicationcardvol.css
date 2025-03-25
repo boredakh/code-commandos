@@ -9,57 +9,64 @@
   flex-direction: column;
   justify-content: center;
   background-color: #002d7e;
+  padding: var(--dl-space-space-unit); /* Add padding for better spacing */
+  border-radius: 8px; /* Add rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
 }
- 
+
 .viewapplicationcardvol-text4 {
   text-align: center;
 }
- 
+
 .viewapplicationcardvol-actions {
-  gap: var(--dl-space-space-unit);
-  flex-wrap: wrap;
+  gap: var(--dl-space-space-unit); /* Add gap between buttons */
+  flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+  margin-top: var(--dl-space-space-unit); /* Add margin for spacing */
 }
- 
+
 .viewapplicationcardvol-button {
   flex: 1;
+  text-decoration: none;
+  padding: 10px 20px; /* Add padding for better clickability */
+  border-radius: 4px; /* Add rounded corners */
+  transition: background-color 0.3s ease; /* Smooth hover transition */
+  background-color: #bf4408; /* Primary color for buttons */
+  color: var(--dl-color-theme-neutral-light); /* Light text color */
+  border: none; /* Remove default border */
+  cursor: pointer; /* Add pointer cursor for better UX */
 }
- 
+
+.viewapplicationcardvol-button:hover {
+  background-color: #ffa566; /* Darker shade for hover */
+}
+
+.viewapplicationcardvol-button:focus {
+  outline: 2px solid #ffffff; /* Focus indicator for accessibility */
+}
+
 .viewapplicationcardvol-action1 {
   text-align: center;
 }
- 
-.viewapplicationcardvol-text5 {
-  display: inline-block;
-}
- 
-.viewapplicationcardvol-text6 {
-  display: inline-block;
-}
- 
-.viewapplicationcardvol-text7 {
-  display: inline-block;
-}
- 
-.viewapplicationcardvol-text8 {
-  display: inline-block;
-}
- 
+
+.viewapplicationcardvol-text5,
+.viewapplicationcardvol-text6,
+.viewapplicationcardvol-text7,
+.viewapplicationcardvol-text8,
 .viewapplicationcardvol-text9 {
   display: inline-block;
 }
- 
 
- 
-
- 
-@media(max-width: 767px) {
+/* Responsive Design */
+@media (max-width: 767px) {
   .viewapplicationcardvol-card {
     width: 100%;
+    padding: var(--dl-space-space-halfunit); /* Adjust padding for smaller screens */
   }
 }
- 
-@media(max-width: 479px) {
+
+@media (max-width: 479px) {
   .viewapplicationcardvol-button {
     width: 100%;
+    margin-bottom: var(--dl-space-space-halfunit); /* Add margin between stacked buttons */
   }
 }

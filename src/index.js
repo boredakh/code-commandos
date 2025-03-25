@@ -40,7 +40,9 @@ import NotFound from './views/not-found';
 import Editlisting from './views/editlisting';
 import SignIn1 from './views/sign-in1';
 import Orgorvol from './views/orgorvol';
-import Results from './views/results'
+import Results from './views/results';
+import ApplicantReview from './views/ApplicantReview/ApplicantReview'; // Corrected import path
+import ListingReview from './views/ListingReview/ListingReview'; // Import the new ListingReview component
 
 // Corrected import paths
 import { AuthProvider } from './AuthContext'; // Path to AuthContext
@@ -58,7 +60,6 @@ const App = () => {
           <Route component={OpportunitiesIn} exact path="/opportunities-in" />
           <Route component={OrgSignUp} exact path="/org-sign-up" />
           <Route component={Results} exact path="/results" />
-
           <Route
             component={DashboardVolunteerIn}
             exact
@@ -104,8 +105,10 @@ const App = () => {
           <Route component={ListinginOrg} exact path="/listingin-org" />
           <Route component={SignIn1} exact path="/sign-in1" />
           <Route component={Orgorvol} exact path="/orgorvol" />
-          <Route component={NotFound} path="**" />
-          <Redirect to="**" />
+          <Route component={ApplicantReview} exact path="/applicant/:id/review" /> {/* Route for applicant reviews */}
+          <Route component={ListingReview} exact path="/listing/:listingId/review" /> {/* New route for listing reviews */}
+          <Route component={NotFound} path="*" /> {/* Catch all unmatched routes */}
+          <Redirect to="*" /> {/* Redirect to NotFound for unmatched routes */}
         </Switch>
       </Router>
     </AuthProvider>

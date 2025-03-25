@@ -2,7 +2,7 @@ import React, { useState, useEffect, Fragment } from 'react';
 import { useParams } from 'react-router-dom'; // Import useParams to get the applicationId from the URL
 import { Helmet } from 'react-helmet';
 import { supabase } from '../components/supabaseclient'; // Import your Supabase client
-import NavBarOut from '../components/nav-bar-out';
+import NavBarOut from '../components/nav-bar-org-in';
 import Applicantcard from '../components/applicantcard';
 import Footer from '../components/footer';
 import './applicant.css';
@@ -10,14 +10,16 @@ import './applicant.css';
 const Applicant = (props) => {
   const { applicationId } = useParams(); // Get the applicationId from the URL
   const [application, setApplication] = useState(null);
+  const [averageRating, setAverageRating] = useState(null); // State for average rating
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Fetch the application details when the component mounts
+  // Fetch the application details and average rating when the component mounts
   useEffect(() => {
-    const fetchApplication = async () => {
+    const fetchApplicationAndRating = async () => {
       try {
-        const { data, error } = await supabase
+        // Fetch the application details
+        const { data: applicationData, error: applicationError } = await supabase
           .from('applications')
           .select(`
             *,
@@ -45,10 +47,30 @@ const Applicant = (props) => {
           .eq('id', applicationId)
           .single(); // Fetch a single application
 
-        if (error) {
-          setError(error.message);
+        if (applicationError) {
+          throw applicationError;
+        }
+
+        setApplication(applicationData);
+
+        // Fetch the average rating for the applicant
+        const { data: ratingData, error: ratingError } = await supabase
+          .from('reviews')
+          .select('rating')
+          .eq('reviewed_id', applicationData.user_id) // Assuming user_id is the volunteer's ID
+          .eq('reviewed_type', 'volunteer');
+
+        if (ratingError) {
+          throw ratingError;
+        }
+
+        // Calculate the average rating
+        if (ratingData.length > 0) {
+          const totalRating = ratingData.reduce((sum, review) => sum + review.rating, 0);
+          const average = totalRating / ratingData.length;
+          setAverageRating(average.toFixed(1)); // Round to 1 decimal place
         } else {
-          setApplication(data);
+          setAverageRating('No reviews yet'); // Handle case with no reviews
         }
       } catch (err) {
         setError('An unexpected error occurred. Please try again.');
@@ -57,7 +79,7 @@ const Applicant = (props) => {
       }
     };
 
-    fetchApplication();
+    fetchApplicationAndRating();
   }, [applicationId]);
 
   if (loading) {
@@ -71,6 +93,8 @@ const Applicant = (props) => {
   if (!application) {
     return <div>Application not found.</div>;
   }
+
+  console.log('Application ID:', application.id); // Debugging
 
   return (
     <div className="applicant-container">
@@ -160,6 +184,7 @@ const Applicant = (props) => {
         }
       />
       <Applicantcard
+        applicationId={application.id} // Pass the UUID
         feature1Title={
           <Fragment>
             <span className="applicant-text25">
@@ -260,6 +285,8 @@ const Applicant = (props) => {
             <span className="applicant-text43">{application.referee_relationship || 'N/A'}</span>
           </Fragment>
         }
+        // Pass the average rating as a prop
+        averageRating={averageRating}
         mainAction1={
           <Fragment>
             <span className="applicant-text44">Return</span>

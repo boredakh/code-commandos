@@ -11,7 +11,7 @@ const BlogPosthome = (props) => {
         <h3 className="blog-posthome-heading thq-heading-2">
           {props.category ?? (
             <Fragment>
-              <span className="blog-posthome-text2">Blogs</span>
+              <span className="blog-posthome-text2" >Blogs</span>
             </Fragment>
           )}
         </h3>

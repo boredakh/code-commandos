@@ -65,6 +65,7 @@
   border-style: solid;
   border-width: 1px;
   flex-direction: column;
+  background-color: #002d7e;
 }
  
 .iconshome-price10 {
@@ -121,7 +122,7 @@
   border-style: solid;
   border-width: 1px;
   flex-direction: column;
-  background-color: var(--dl-color-theme-accent1);
+  background-color: #002d7e;
 }
  
 .iconshome-price12 {
@@ -576,10 +577,7 @@
  
 .iconshome-text67 {
   display: inline-block;
-}
- 
-.iconshome-text68 {
-  color: var(--dl-color-theme-neutral-dark);
+  
 }
  
 .iconshome-text71 {
@@ -612,6 +610,7 @@
  
 .iconshome-text78 {
   display: inline-block;
+  color: #ffa566 !important;
 }
  
 @media(max-width: 991px) {
@@ -633,4 +632,14 @@
   .iconshome-max-width {
     gap: var(--dl-space-space-oneandhalfunits);
   }
+}
+
+/* For "Find a match" heading */
+.iconshome-column3 .iconshome-text14 .iconshome-text68 {
+  color: #ffa566 !important;
+}
+
+/* For the description text */
+.iconshome-column3 .thq-body-small .iconshome-text78 span {
+  color: #ffa566 !important;
 }

@@ -5,7 +5,7 @@
   z-index: 1000;
   position: sticky;
   justify-content: center;
-  background-color: var(--dl-color-theme-neutral-light);
+  background-color: #001a6f;
 }
  
 .nav-bar-org-in-navbar-interactive {
@@ -64,7 +64,7 @@
  
 .nav-bar-org-in-action11 {
   display: flex;
-  border-color: #000000;
+  border-color: #ffa566;
   flex-direction: row;
   text-decoration: none;
   background-color: #001a6f;
@@ -72,7 +72,7 @@
  
 .nav-bar-org-in-action12 {
   display: flex;
-  border-color: #000000;
+  border-color: #ffa566;
   flex-direction: row;
   text-decoration: none;
   background-color: #001a6f;
@@ -712,4 +712,13 @@
   .nav-bar-org-in-mobile-menu {
     padding: var(--dl-space-space-unit);
   }
+}
+
+/* Specific override for About Us text */
+.nav-bar-out-link11 .nav-bar-out-text15,
+.nav-bar-out-link12 .nav-bar-out-text15 {
+  color: #000000 !important;
+  -webkit-text-fill-color: #000000 !important;
+  background: none !important;
+  background-clip: unset !important;
 }

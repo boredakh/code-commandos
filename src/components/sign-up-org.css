@@ -5,6 +5,7 @@
   align-items: center;
   flex-direction: row;
   justify-content: center;
+  background-color: #002d7e;
 }
  
 .sign-up-org-max-width {
@@ -76,7 +77,7 @@
 .sign-up-org-textinput1 {
   width: 100%;
   border-color: #002d7e;
-  background-color: transparent;
+  background-color: #ffffff;
 }
  
 .sign-up-org-industry {
@@ -91,7 +92,7 @@
 .sign-up-org-textinput2 {
   width: 100%;
   border-color: #002d7e;
-  background-color: transparent;
+  background-color: #ffffff;
 }
  
 .sign-up-org-email {
@@ -106,7 +107,7 @@
 .sign-up-org-textinput3 {
   width: 100%;
   border-color: #002d7e;
-  background-color: transparent;
+  background-color: #ffffff;
 }
  
 .sign-up-org-username {
@@ -121,7 +122,7 @@
 .sign-up-org-textinput4 {
   width: 100%;
   border-color: #002d7e;
-  background-color: transparent;
+  background-color: #ffffff;
 }
  
 .sign-up-org-password {
@@ -168,7 +169,7 @@
 .sign-up-org-textinput5 {
   width: 100%;
   border-color: #002d7e;
-  background-color: transparent;
+  background-color: #ffffff;
 }
  
 .sign-up-org-pass-requirements {
@@ -338,7 +339,7 @@
 .sign-up-org-textinput6 {
   width: 100%;
   border-color: #002d7e;
-  background-color: transparent;
+  background-color: #ffffff;
 }
  
 .sign-up-org-postcode {
@@ -353,7 +354,7 @@
 .sign-up-org-textinput7 {
   width: 100%;
   border-color: #002d7e;
-  background-color: transparent;
+  background-color: #ffffff;
 }
  
 .sign-up-org-address {
@@ -368,7 +369,7 @@
 .sign-up-org-textinput8 {
   width: 100%;
   border-color: #002d7e;
-  background-color: transparent;
+  background-color: #ffffff;
 }
  
 .sign-up-org-container8 {
@@ -391,7 +392,7 @@
 .sign-up-org-button {
   border-color: #000000;
   text-decoration: none;
-  background-color: #002d7e;
+  background-color:var(--dl-color-theme-primary1);
 }
  
 .sign-up-org-text28 {

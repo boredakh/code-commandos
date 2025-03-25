@@ -5,7 +5,7 @@
   z-index: 1000;
   position: sticky;
   justify-content: center;
-  background-color: var(--dl-color-theme-neutral-light);
+  background-color: #001a6f;
 }
  
 .nav-bar-out-navbar-interactive {
@@ -79,7 +79,7 @@
 }
  
 .nav-bar-out-action21 {
-  color: #001a6f;
+  color: #ffa566;
   display: flex;
   border-color: #ffa566;
   flex-direction: row;
@@ -603,4 +603,23 @@
   .nav-bar-out-mobile-menu {
     padding: var(--dl-space-space-unit);
   }
+}
+
+/* Complete override - add this at the VERY END of your CSS file */
+.nav-bar-out-link11.thq-link.thq-body-small .nav-bar-out-text15,
+.nav-bar-out-link12.thq-link.thq-body-small .nav-bar-out-text15,
+.nav-bar-out-text15 {
+  all: initial !important; /* Resets all properties */
+  display: inline-block !important;
+  color: #000000 !important;
+  -webkit-text-fill-color: #000000 !important;
+  background: none !important;
+  background-image: none !important;
+  background-clip: unset !important;
+}
+
+/* Targets only the login text */
+.nav-bar-out-action21 .nav-bar-out-text19 {
+  color: #ffa566 !important;
+  -webkit-text-fill-color: #ffa566 !important;
 }
